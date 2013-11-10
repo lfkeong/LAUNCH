@@ -13,23 +13,23 @@
   <button type="button" onclick="appLogin()"> Log in with Faceboook</button>
 
   <script>
-    // var myDataRef = new Firebase('https://hf3ydtm4yf0.firebaseio-demo.com/');
-    // $('#messageInput').keypress(function (e) {
-    //   if (e.keyCode == 13) {
-    //     var name = $('#nameInput').val();
-    //     var text = $('#messageInput').val();
-    //     myDataRef.push({name: name, text: text});
-    //     $('#messageInput').val('');
-    //   }
-    // });
-    // myDataRef.on('child_added', function(snapshot) {
-    //   var message = snapshot.val();
-    //   displayChatMessage(message.name, message.text);
-    // });
-    // function displayChatMessage(name, text) {
-    //   $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
-    //   $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-    // };
+    var myDataRef = new Firebase('https://hf3ydtm4yf0.firebaseio-demo.com/');
+    $('#messageInput').keypress(function (e) {
+      if (e.keyCode == 13) {
+        var name = $('#nameInput').val();
+        var text = $('#messageInput').val();
+        myDataRef.push({name: name, text: text});
+        $('#messageInput').val('');
+      }
+    });
+    myDataRef.on('child_added', function(snapshot) {
+      var message = snapshot.val();
+      displayChatMessage(message.name, message.text);
+    });
+    function displayChatMessage(name, text) {
+      $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+      $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+    };
 
     function appLogin(){
      var chatRef = new Firebase('https://launchhacky.firebaseIO-demo.com/');

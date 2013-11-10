@@ -2,23 +2,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Former</title>
-	<link rel="stylesheet" href="/css/foundation.css">
-	<link href="/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/foundation.css">
+	<link href="css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<script src='https://cdn.firebase.com/v0/firebase.js'></script>
+	<script src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
+	<script type="text/javascript" src="js/editor.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+	<script type="text/javascript">
+
+		var User = {};
+		var myRootRef = new Firebase('https://launchhacky-database.firebaseio.com/');
+		myRootRef.on('value', function(data){
+			var data = data.val();
+			console.log("fetching data from firebase: ", data);
+			User = {  //For debugging, used to check on console 
+				title : data.title,
+				description : data.description,
+				feature : data.feature,
+				feat_description : data.feat_description
+			};
+				if(data.title.length != 0){$('#eb-title').text(data.title);}
+				if(data.description.length != 0){$('#eb-main-description').text(data.description);}	
+				if(data.feature.length != 0){$('#eb-feature').text(data.feature);}
+				if(data.feat_description.length != 0){$('#eb-feat-description').text(data.feat_description);}
+		});
+	</script>
+
 </head>
 <body class="flex-container">
 	<div id="editor" class="flex-1">
 		<form action="editor">
 			<p>Title</p>
-			<input type="text" name="Title"><br>
+			<input id="fb-title" type="text" name="Title" onkeyup="editor(1)"><br>
 			<p>Header Text</p>
-			<input type="text" name="MainDesc"><br>
+			<input id="fb-main-description" type="text" name="MainDesc" onkeyup="editor(2)"><br>
 			<p>Feature 1</p>
-			<input type="text" name="Feature-1">
+			<input id="fb-feature" type="text" name="Feature-1" onkeyup="editor(3)">
 			<p>Description</p>
-			<input type="text" name="Feature-1-desc">
+			<input id="fb-feat-description" type="text" name="Feature-1-desc" onkeyup="editor(4)">
 			<p>Image</p>
-			<input type="text" name="Feature-1-img">
+			<input id="fb-img" type="text" name="Feature-1-img">
 			<b><a href="/">
 				<span>Add New Feature</span><i class="fa fa-plus-square"></i>
 			</a></b><br>
@@ -46,7 +70,8 @@
 						<!-- Title Area -->
 						<li class="name">
 								<a href="/">
-									<h1>Top Bar Title</h1>
+									<!-- <h1 id="eb-title">Top Bar Title</h1> -->
+									<h1 id="eb-title">Top Bar Title</h1>
 								</a>
 						</li>
 						<li class="toggle-topbar menu-icon"><a href="/"><span>menu</span></a></li>
@@ -66,7 +91,7 @@
 					<!-- Desktop Slider -->
 
 					<div id="featured-banner">
-						<div class="gradient-overlay maxed featured-description"><h1>Header Text</h1></div>
+						<div class="gradient-overlay maxed featured-description"><h1 id="eb-main-description">Header Text</h1></div>
 						<div class="featured-background"></div>
 					</div>
 
@@ -82,8 +107,8 @@
 					<div class="flex-1 flex-container flex-vertical">
 						<img class="flex-1" src="http://placekitten.com/1000/100">
 						<h6 class="text-panel flex-1">
-							<p class="feature-title">Feature 1</p>
-							<p class="feature-desc">Description</p>
+							<p class="feature-title" id="eb-feature">Feature 1</p>
+							<p class="feature-desc" id="eb-feat-description" >Description</p>
 						</h6>
 					</div>
 					<!-- End Thumbnails -->
@@ -145,8 +170,9 @@
 		document.write('<script src=js/vendor/' +
 			('__proto__' in {} ? 'zepto' : 'jquery') +
 			'.js><\/script>')
-		</script><script src="/js/zepto.js"></script>
-		<script src="/js/foundation.min.js"></script>
+		</script>
+		<script src="js/zepto.js"></script>
+		<script src="js/foundation.min.js"></script>
 		<script>
 		$(document).foundation();
 		</script>
@@ -156,5 +182,13 @@
 		});
 		</script>
 		<!-- End Footer -->
+
+		<script type="text/javascript">
+		$('#fb-title, #fb-main-description, #fb-feature, #fb-feat-description').focusout(function(){
+			pushToFirebase();
+		});
+			
+
+		</script>
 	</body>
 	</html>

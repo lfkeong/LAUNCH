@@ -9,10 +9,8 @@ var https = require('https');
 var path = require('path');
 var Firebase = require('firebase');
 
-var myRootRef = new Firebase('https://launchhacky.firebaseIO-demo.com/');
+var myRootRef = new Firebase('https://launchhacky-database.firebaseio.com/');
 var app = express();
-
-myRootRef.set("hello world!");
 
 app.configure(function(){
   app.set('port', 50000);
@@ -30,16 +28,18 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+
+
 app.get('/launch', function(req, res){
   res.render('editor',{});
 });
+
 
 app.get('/login', function(req,res){
   res.render('login', {});
 });
 
 // app.get('/launch/add', function(req, res){
-
 
 //   res.render('app', {
 //     isException    : req.query.isException,

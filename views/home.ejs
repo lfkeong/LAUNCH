@@ -1,32 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
-    <link rel='stylesheet' type='text/css' href='../css/example.css'>
-  </head>
-  <body>
-    <div id='messagesDiv'></div>
-    <input type='text' id='nameInput' placeholder='Name'>
-    <input type='text' id='messageInput' placeholder='Message'>
-    <script>
-      var myDataRef = new Firebase('https://hf3ydtm4yf0.firebaseio-demo.com/');
-      $('#messageInput').keypress(function (e) {
-        if (e.keyCode == 13) {
-          var name = $('#nameInput').val();
-          var text = $('#messageInput').val();
-          myDataRef.push({name: name, text: text});
-          $('#messageInput').val('');
+<head>
+  <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+  <script src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+  <link rel='stylesheet' type='text/css' href='../css/example.css'>
+</head>
+<body>
+  <div id='messagesDiv'></div>
+  <input type='text' id='nameInput' placeholder='Name'>
+  <input type='text' id='messageInput' placeholder='Message'>
+  <button type="button" onclick="appLogin()"> Log in with Faceboook</button>
+
+  <script>
+    // var myDataRef = new Firebase('https://hf3ydtm4yf0.firebaseio-demo.com/');
+    // $('#messageInput').keypress(function (e) {
+    //   if (e.keyCode == 13) {
+    //     var name = $('#nameInput').val();
+    //     var text = $('#messageInput').val();
+    //     myDataRef.push({name: name, text: text});
+    //     $('#messageInput').val('');
+    //   }
+    // });
+    // myDataRef.on('child_added', function(snapshot) {
+    //   var message = snapshot.val();
+    //   displayChatMessage(message.name, message.text);
+    // });
+    // function displayChatMessage(name, text) {
+    //   $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+    //   $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+    // };
+
+    function appLogin(){
+     var chatRef = new Firebase('https://launchhacky.firebaseIO-demo.com/');
+     var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
+      if (error) {
+          // an error occurred while attempting login
+          console.log(error);
+        } else if (user) {
+          // user authenticated with Firebase
+          console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+        } else {
+          // user is logged out
         }
       });
-      myDataRef.on('child_added', function(snapshot) {
-        var message = snapshot.val();
-        displayChatMessage(message.name, message.text);
-      });
-      function displayChatMessage(name, text) {
-        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
-        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-      };
-    </script>
-  </body>
+     auth.login('facebook');
+   }
+ </script>
+
+</body>
 </html>

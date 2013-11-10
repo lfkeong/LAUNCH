@@ -9,7 +9,7 @@ var https = require('https');
 var path = require('path');
 var Firebase = require('firebase');
 
-var myRootRef = new Firebase('https://myprojectname.firebaseIO-demo.com/');
+var myRootRef = new Firebase('https://launchhacky.firebaseIO-demo.com/');
 var app = express();
 
 myRootRef.set("hello world!");
@@ -30,8 +30,12 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/launch', function(req, res){
+app.get('/home', function(req, res){
   res.render('home',{});
+});
+
+app.get('/login', function(req,res){
+  res.render('login', {});
 });
 
 // app.get('/launch/add', function(req, res){

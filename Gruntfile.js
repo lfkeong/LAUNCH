@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 		handlebars: {
 			compile: {
         options: {
-          namespace: "NewzSocial.Template",
+          namespace: "Launch.Template",
           processName: function(filename) {
             return filename.substring(filename.lastIndexOf("/")+1,filename.lastIndexOf("."));
           },
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          "public/beta-Bobby/js/templates.compiled.js": "templates/*.handlebars"
+          "public/launch/js/templates.compiled.js": "templates/*.handlebars"
         }
       }
     }

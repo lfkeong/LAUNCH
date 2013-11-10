@@ -1,0 +1,33 @@
+<div class='template_container'>
+  <div class="modal-header">
+    <button class="close pull-right" onclick="signout()"><small>Sign Out</small></button>
+    <img class="pull-left" id='newzsocial_logo' src="images/newzsocial.png" alt="newzsocial_logo">
+    <h3>Curate Article</h3>
+  </div>
+  <div class="modal-body">
+    <p>Choose Channel(s):<p>
+      <select id='channels-select' multiple="multiple">
+        {{#each channels}}
+        <option value='{{this.[0]}}'>{{this.[1]}}</option>
+        {{/each}}
+      </select>
+      <textarea id="curate-user-comment" placeholder="Write a comment…" class="input-block-level curate-user-comment"></textarea>
+      <div class="media share-content">
+        <img class="media-object img-polaroid pull-left share-content-image" src="{{article.image}}">
+        <div class="media-body">
+          <h5 class="media-heading share-content-title">{{article.title}}</h5>
+          <p class="share-content-publisher muted">{{article.publisher}}</p>
+          <p class="share-content-summary muted">{{article.content}}</p>
+        </div>
+      </div>
+      <div id="curate_alert" class="error">
+        nothing
+      </div>
+    </div>
+    <div class="modal-footer">
+      <!-- <a href="#" class="btn hide" onclick="back_button()">Back</a> -->
+      <a href="#" class="btn btn-danger" onclick="close_bookmarklet()">CLOSE</a>
+      <a href="#" class="btn btn-success" onclick="curate_article(true,'{{article_id}}')">CLIP AND CURATE</a>
+      <a href="#" class="btn btn-primary" onclick="curate_article(false,'{{article_id}}')">CURATE</a>
+    </div>
+  </div>

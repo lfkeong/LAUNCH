@@ -1,0 +1,86 @@
+<div id='signin_container' class='template_container'>
+  <div class="modal-header">
+    <img class="pull-left" id='newzsocial_logo' src="images/newzsocial.png" alt="newzsocial_logo">
+    <h3>Sign In to NewzSocial</h3>
+  </div>
+  <div class="modal-body" style="overflow: auto;">
+    <form>
+        <div id='signin_alert' class="alert alert-error">
+        Hey! Your Username or Password is incorrect!
+      </div>
+      
+      <div id="pr-1" style="float: left; width: 50%; position: relative; text-align: center; margin-top:20px;">
+          <!-- Email login field -->  
+              <input name="userEmail" id="userEmail" type="text" placeholder="Email" onkeypress="enterKey(event)"><br /> 
+              <input name="userPwd" id="userPwd" type="password" placeholder="Password" onkeypress="enterKey(event)"> 
+      </div>
+
+       <div id="pr-1-alt" style="float: right; width: 45%; position: relative; text-align: right;">
+          <a id="pr-4" class="clickable" onclick="NAS.lnSignIn();return false;"><img alt="" class="social-media-btn" src="images/signin-linkedin-btn.png"/></a>
+          <!-- <button id="pr-4-alt" class="btn hide btn-primary" style="height: 30px; margin-bottom: 10px;" onclick="showLoading(1);return false;" disabled>Update LinkedIn Profile</button> -->
+
+          <a id="pr-2" class="clickable" onclick="NAS.fbSignIn();return false;"><img alt="" class="social-media-btn" src="images/signin-facebook-btn.png"/></a>
+          <!-- <button id="pr-2-alt" class="btn hide btn-primary" style="height: 30px; margin-bottom: 10px;" onclick="showLoading(2);return false;" disabled>Update Facebook Profile</button>
+ -->
+          <a id="pr-3" class="clickable" onclick="NAS.twtSignIn();return false;"><img alt="" class="social-media-btn" src="images/signin-twitter-btn.png"/></a>
+         <!--  <button id="pr-3-alt" class="btn hide btn-primary" style="height: 30px; margin-bottom: 10px;" onclick="showLoading(3);return false;" disabled>Update Twitter Profile</button> -->
+        </div>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" onclick="close_bookmarklet()">Close</a>
+    <a href="#" class="btn" onclick="email_signin()">Sign In</a>
+  </div>  
+</div>
+
+<script type="text/javascript">
+//   function linkCallBack(resp) {
+//     console.log('In call back');
+//     console.log(resp);
+//     if (resp && resp.status) {
+//       displaySuccess("Logged in!", "Loading...", 500000);
+//       document.location.href = document.location.href;
+//     } else {
+//       showError(resp.data);
+//     }
+//   }
+
+// </script>
+
+   <!--  <form id="" name="loginFrm" method="post" action="signin" style="margin: 0px;">
+      <div class="modal-body" style="position: relative; overflow: overlay;">
+        <div id="pr-1" style="float: left; width: 50%; position: relative; text-align: center;"> -->
+          <!-- Email login field -->
+         <!--  <input name="userEmail" id="userEmail" type="text" placeholder="Email" onkeypress="onFormReturnCarriage(event)"><br /> 
+          <input name="userPwd" id="userPwd" type="password" placeholder="Password" onkeypress="onFormReturnCarriage(event)"> -->
+          <!-- pre login -->
+         <!--  <ul class="signin-link-list">
+            <li id="pr-1-guest-vem" class=""><a  class="clickable" onclick="verifyEmail()">Send Verification Link</a></li>
+            <li id="pr-1-guest-fgp" class=""><a class="clickable" onclick="forgotPassword()">Reset Password</a></li> -->
+          <!-- post login-->
+           <!--  <li id="pr-1-fgp" class="hide"><a class="clickable" onclick="forgotPassword()">Reset Password</a></li>
+            <li id="pr-1-cgp" class="hide"><a class="clickable " onclick="changePasswordPressed()">Change Password</a></li>
+            <li id="pr-1-vem" class="hide"><a class="clickable" onclick="verifyEmail()">Verify Email</a></li>
+          </ul>
+        </div> -->
+
+        <!-- Post Login: Social Media Update (buttons only enabled after successful log in) -->
+        <!-- <div id="pr-1-alt"
+          style="float: right; width: 45%; position: relative; text-align: right;">
+          <a id="pr-4" class="clickable" onclick="NAS.lnSignIn(linkCallBack);return false;"><img alt="" src="<%=RES_PATH%>/images/signin-linkedin-btn.png" style="height: 30px; margin-bottom: 10px;" /></a>
+          <button id="pr-4-alt" class="btn hide btn-primary" style="height: 30px; margin-bottom: 10px;" onclick="showLoading(1);return false;" disabled>Update LinkedIn Profile</button>
+
+          <a id="pr-2" class="clickable" onclick="NAS.fbSignIn(fbCallBack);return false;"><img alt="" src="<%=RES_PATH%>/images/signin-facebook-btn.png" style="height: 30px; margin-bottom: 10px;" /></a>
+          <button id="pr-2-alt" class="btn hide btn-primary" style="height: 30px; margin-bottom: 10px;" onclick="showLoading(2);return false;" disabled>Update Facebook Profile</button>
+
+          <a id="pr-3" class="clickable" onclick="NAS.twtSignIn(twtCallBack);return false;"><img alt="" src="<%=RES_PATH%>/images/signin-twitter-btn.png" style="height: 30px;" /></a>
+          <button id="pr-3-alt" class="btn hide btn-primary" style="height: 30px; margin-bottom: 10px;" onclick="showLoading(3);return false;" disabled>Update Twitter Profile</button>
+        </div>
+      </div>
+      <div id="modal-footer" class="modal-footer">
+        <img id="loading-signin" src="<%=RES_PATH%>images/loading.gif" alt="loading..." class="hide" />
+        <button id="signin-confirm-btn" class="btn btn-primary" type="submit" onclick="validateLoginSubmit();return false;">SIGN IN</button>
+      </div>
+    </form>
+ -->

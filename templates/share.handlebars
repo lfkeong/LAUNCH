@@ -1,0 +1,196 @@
+<div class="template_container">
+  <ul id="share-tab-nav" class="tabs-social">
+    {{#if display.facebook}}
+    <li id="tab-facebook" class="social-tab tab-left"><a href="javascript:share_pipe('facebook','{{article.id}}')"><img src="http://betapp.newzsocial.com/newzlink/images/Facebook_greycircle_ON_24x24.png" class="hide tab-icon-on" alt=""/><img src="http://betapp.newzsocial.com/newzlink/images/Facebook_greycircle_24x24.png" class="tab-icon-off hide" alt=""/>Facebook</a></li>
+    {{/if}}
+    {{#if display.linkedin}}
+    <li id="tab-linkedin" class="social-tab tab-middle"><a href="javascript:share_pipe('linkedin','{{article.id}}')"><img src="http://betapp.newzsocial.com/newzlink/images/LinkedIn_greycircle_ON_24x24.png" class="hide tab-icon-on" alt=""/><img src="http://betapp.newzsocial.com/newzlink/images/LinkedIn_greycircle_24x24.png" class="tab-icon-off" alt=""/>LinkedIn</a></li>
+    {{/if}}
+    {{#if display.twitter}}
+    <li id="tab-twitter" class="social-tab tab-middle"><a href="javascript:share_pipe('twitter','{{article.id}}')"><img src="http://betapp.newzsocial.com/newzlink/images/Twitter_greycircle_ON_24x24.png" class="hide tab-icon-on" alt=""/><img src="http://betapp.newzsocial.com/newzlink/images/Twitter_greycircle_24x24.png" class="tab-icon-off" alt=""/>Twitter</a></li>
+    {{/if}}
+    {{#if display.email}}
+    <li id="tab-email" class="social-tab tab-right"><a href="javascript:share_pipe('email','{{article.id}}')"><img src="http://betapp.newzsocial.com/newzlink/images/Email_greycircle_ON_24x24.png" class="hide tab-icon-on" alt=""/><img src="http://betapp.newzsocial.com/newzlink/images/Email_greycircle_24x24.png"  class="tab-icon-off" alt=""/>Email</a></li>
+    {{/if}}
+  </ul>
+</div>
+
+<div class='template_container share-container'>
+  <div class="modal-header">
+    <button class="close pull-right" onclick="signout()"><small>Sign Out</small></button>
+    <img class="pull-left" id='newzsocial_logo' src="images/newzsocial.png" alt="newzsocial_logo">
+    <h3>Share Article <span id="share-pipe-title">{{sharePipe.title}}</span></h3>
+  </div>
+  <div class="modal-body">
+    <div class="share-options">
+      {{#if shareTypes}}
+      <select id="share-type-select" class="share-type" onchange="share_type_change('{{sharePipe.pipe}}')">
+        {{#each shareTypes}}
+        <option value="{{type}}">{{label}}</option>
+        {{/each}}
+      </select>
+      {{/if}}
+      {{#if friends}}
+      <div id="share-friends">
+        <p>Choose Friend(s):<p>
+          {{#if isEmail}}
+          <input type="text" id="emailInput" placeholder="Enter email">
+          <div id="divEmailMe">
+            <label class="checkbox">
+              <input type="checkbox" id="emailMe"> Email me a copy too!
+            </label>
+          </div>
+          {{/if}}
+          {{#unless isEmail}}
+          <select id='share-friend-select' multiple="multiple">
+            {{#each friends}}
+            <option value='{{oaProfile.oaUserId}}'>{{oaProfile.userName}}</option>
+            {{/each}}
+          </select>
+          {{/unless}}
+        </div>
+        {{/if}}
+
+        <div id="share-group">
+          <p>Choose Group(s):<p>
+            <select id='share-group-select' onchange="checkOaData('{{sharePipe.pipe}}')">
+              {{#each groups}}
+              <option value='{{oaGroupId}}'>{{oaGroupName}}</option>
+              {{/each}}
+            </select>
+          </div>
+
+          <div id="share-page">
+            <p>Choose Page(s):</p>
+            <select id='share-page-select' onchange="checkOaData('{{sharePipe.pipe}}')">
+              {{#each pages}}
+              <option value='{{oaPageId}}'>{{oaPageName}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+
+        <div class="media share-information">
+        {{#unless isEmail}}
+          <img class="media-object img-polaroid pull-left share-user-image" src="{{profile.image}}">
+          {{/unless}}
+          <div class="media-body">
+          {{#unless isEmail}}
+            <h4 class="media-heading share-user-name">{{profile.name}}</h4>
+            {{/unless}}
+            <textarea id="share-user-comment" placeholder="Write a comment…" class="input-block-level share-user-comment" onkeyup="count_comment('{{sharePipe.pipe}}')"></textarea>
+            <span id="share-comment-count" class="badge badge-info"></span>
+            <div class="media share-content">
+              <img id="image" class="media-object img-polaroid pull-left share-content-image" src="{{article.image}}">
+              <div class="media-body">
+                <h5 id="title" class="media-heading share-content-title">{{article.title}}</h5>
+                <p id="publisher" class="share-content-publisher muted">{{article.publisher}}</p>
+                <p id="content" class="share-content-summary muted">{{article.content}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="share_alert" class="error">nothing</div>
+      </div>  
+
+      {{#if display.SocialSettings }}
+      <div id="pipeIt" class="modal-pipeIt-container" style="display:block;padding:0px;">
+        <div class"accordion-heading">
+          <a class="accordion-toggle collapsed" style="background-color: #444444;display:block;line-height:130%;" data-state="off" data-toggle="collapse" data-parent="#modal-pipeIt-container" href="#collapse-pipeIt" onfocus="if(this.blur)this.blur()" onclick="accordionToggle('{{sharePipe.pipe}}')"><img src="http://betapp.newzsocial.com/newzlink/images/modal_pipe_it.png" alt=""/>Pipe it!</a>
+        </div>
+
+        <div id ="collapse-pipeIt" class="accordion-body collapse">
+          <div class="accordion-inner">
+              <div class="pipeIt-type-selection selection-top">
+                <button id="pipeIt-btn-set-schedule" class="btn hide" type="button" onclick="setSchedule()">Create A New Schedule</button>
+                <span id="pipeIt-have-schedule" class="hide">Use Existing Schedule</span>
+                <span class="pipeIt-selection-checkbox"><input type="radio" name="pipeIt-selection" value="pipe-schedule"></span>
+              </div>
+              <div class="pipeIt-type-selection selection-bot">
+
+                <div class="input-prepend">
+                  <span class="pipeIt-selection-input-indication-left">Post In</span>
+                  <input id="delay-define" onkeypress="return isNumberKey(event)" id="prependedInput" type="text" placeholder="1" value="1">
+                </div>
+                <select id="select-delay">
+                  <option value="60">hours</option>
+                  <option value="1">minutes</option>
+                  <option value="1440">days</option>
+                </select>
+                <span class="pipeIt-selection-checkbox"><input type="radio" name="pipeIt-selection" value="user-defined"></span>
+              </div>
+              <span id="warning-selection" class="hide">Please select an option above!</span>
+              <span id="warning-schedule" class="hide">Please set a new schedule!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+
+      
+      <div id="pipe-set-schedules" class="modal hide fade">
+    <div class="modal-header">
+      <h3 id="title-schedule"></h3>
+    </div>
+    <div class="modal-inner-container" >
+      <div class="container-set-nav-btn">
+        <span id="set-frequency" class="set-nav-btn set-frequency set-nav-btn-active" data-schdType="1">Frequency</span>
+        <span id="set-random" class="set-nav-btn set-random" data-schdType="2">Random</span>
+        <span id="set-specific" class="set-nav-btn set-specific" data-schdType="3">Specific Time</span>
+      </div>
+      
+    <!--   <div class="" style="min-width:0%;"> -->
+      <!-- Frequency -->
+      <div class="container-specify-schedule set-frequency">
+        <div class="input-prepend">
+          <span class="pipeIt-selection-input-indication-left">Post Every</span>
+          <input id="frequency-define" type="text" onkeypress="return isNumberKey(event)" placeholder="1" value="4">
+        </div>
+        <select id="frequency-denom" style="min-width:0%;"> 
+          <option value="60">hours</option>
+          <option value="1">minutes</option>
+          <option value="1440">days</option>
+        </select>
+      </div>
+      
+      <!-- Random -->
+      <div class="container-specify-schedule set-random hide">
+        <div class="input-prepend">
+          <span class="pipeIt-selection-input-indication-left">Post</span>
+          <input id="random-define-1"  type="text" onkeypress="return isNumberKey(event)" placeholder="1" value="1">
+          <span class="pipeIt-selection-input-indication-middle">articles in</span>
+          <input id="random-define-2"  type="text" onkeypress="return isNumberKey(event)" placeholder="1" value="1">
+        </div>
+        <select id="random-denom" style="min-width:0%;">
+          <option value="1" data-divisor="1">hours</option>
+          <option value="1" data-divisor="60">minutes</option>
+          <option value="24" data-divisor="1">days</option>
+        </select>
+      </div>
+      
+      <!-- Specific Time -->
+      <div class="container-specify-schedule set-specific hide">
+        <div id="container-specific-timeslots">
+          <h4>Timeslots</h4>
+        </div>
+        <a id="btn-add-timeslots" class="btn btn-primary">+TIMESLOTS</a>
+      </div>
+      <!-- </div> -->
+    </div>
+    <div class="modal-footer">
+      <a id="btn-set-schedule-cancel" class="btn btn-primary" data-dismiss="modal">CANCEL</a>
+      <a id="btn-set-schedule-set" class="btn btn-primary">SET SCHEDULE</a>
+    </div>
+  </div>
+
+
+        <div class="modal-footer">
+          <!-- <a href="#" class="btn hide" onclick="back_button()">Back</a> -->
+          <a href="#" class="btn" onclick="close_bookmarklet()">CLOSE</a>
+          <a href="#" id="shareButton" class="btn hide" onclick="share_article('{{sharePipe.pipe}}')">SHARE</a>
+          <a href="#" id="shareButton-twt" class="btn hide" onclick="share_article('{{sharePipe.pipe}}')">TWEET</a>
+          <a href="#" id="shareButton-email" class="btn hide" onclick="share_article('{{sharePipe.pipe}}')">SEND</a>
+          <a href="#" id="pipeButton" class="btn hide" onclick="pipe_article()">PIPE</a>
+        </div>
+      </div>

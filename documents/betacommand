@@ -1,0 +1,1 @@
+sudo forever -a start -l beta-bookmarklet.forever.log -o beta-bookmarklet.out.log -e beta-bookmarklet.err.log beta-bookmarklet.js

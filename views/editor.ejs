@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Former</title>
+	<link rel="stylesheet" href="/css/foundation.css">
+	<link href="/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+</head>
+<body class="flex-container">
+	<div id="editor" class="flex-1">
+		<form action="editor">
+			<p>Title</p>
+			<input type="text" name="Title"><br>
+			<p>Header Text</p>
+			<input type="text" name="MainDesc"><br>
+			<p>Feature 1</p>
+			<input type="text" name="Feature-1">
+			<p>Description</p>
+			<input type="text" name="Feature-1-desc">
+			<p>Image</p>
+			<input type="text" name="Feature-1-img">
+			<b><a href="/">
+				<span>Add New Feature</span><i class="fa fa-plus-square"></i>
+			</a></b><br>
+			<p>Profile Picture</p>
+			<input type="text" name="Profile-Picture">
+			<p>Biography</p>
+			<input type="text" name="Bio"><br>
+			<p>Button</p>
+			<select>
+			  <option value="sign-up">Sign Up</option>
+			  <option value="register">Register</option>
+			  <option value="learn-more">Learn More</option>
+			</select>
+		</form>
+	</div>
+
+	<div id="design" class="flex-4">
+
+			<div class="flex-container">
+
+				<!-- Navigation -->
+
+				<nav id="top-bar" class="top-bar flex-1" style="">
+					<ul class="title-area">
+						<!-- Title Area -->
+						<li class="name">
+								<a href="/">
+									<h1>Top Bar Title</h1>
+								</a>
+						</li>
+						<li class="toggle-topbar menu-icon"><a href="/"><span>menu</span></a></li>
+					</ul>
+
+
+					<section class="top-bar-section">
+						<ul class="left">
+							<li><a href="/">Link 1</a></li>
+						</ul>
+					</section></nav>
+
+					<!-- End Navigation -->
+
+				</div>
+
+					<!-- Desktop Slider -->
+
+					<div id="featured-banner">
+						<div class="gradient-overlay maxed featured-description"><h1>Header Text</h1></div>
+						<div class="featured-background"></div>
+					</div>
+
+					<!-- End Desktop Slider -->
+
+<br>
+
+			<div class="large-12 columns">
+				<div class="flex-container">
+
+					<!-- Thumbnails -->
+
+					<div class="flex-1 flex-container flex-vertical">
+						<img class="flex-1" src="http://placekitten.com/1000/100">
+						<h6 class="text-panel flex-1">
+							<p class="feature-title">Feature 1</p>
+							<p class="feature-desc">Description</p>
+						</h6>
+					</div>
+					<!-- End Thumbnails -->
+
+				</div>
+			</div>
+
+
+
+				<div class="large-12 columns">
+					<div class="flex-container">
+
+						<!-- Content -->
+
+						<div class="flex-4">
+							<div class="text-panel">
+
+								<div class="flex-container">
+									<div class="flex-1">
+										<div class="profile-picture">
+											<img src="http://m.c.lnkd.licdn.com/media/p/1/000/22f/38a/2ff98c0.jpg" alt="" />
+										</div>
+									</div>
+									<div class="flex-2">
+
+										<h4>Header</h4><hr>
+										<h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
+										</h5>
+
+										<div class="show-for-small" align="center">
+											<a href="http://foundation.zurb.com/page-templates4/workspace.html#" class="small radius button">Call To Action!</a><br>
+
+											<a href="http://foundation.zurb.com/page-templates4/workspace.html#" class="small radius button">Call To Action!</a>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="text-panel flex-1">
+
+							<a class="large button expand" href="/">
+								Sign Up
+							</a>
+
+						</div>
+
+						<!-- End Content -->
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+
+		</div>
+
+		<script>
+		document.write('<script src=js/vendor/' +
+			('__proto__' in {} ? 'zepto' : 'jquery') +
+			'.js><\/script>')
+		</script><script src="/js/zepto.js"></script>
+		<script src="/js/foundation.min.js"></script>
+		<script>
+		$(document).foundation();
+		</script>
+		<script type="text/javascript">
+		$(window).load(function() {
+			$('#featured').orbit({ fluid: '2x1' });
+		});
+		</script>
+		<!-- End Footer -->
+	</body>
+	</html>

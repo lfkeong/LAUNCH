@@ -1,0 +1,68 @@
+// Global Style
+html, body {
+}
+
+#editor {
+	@include linear-gradient(left, right, #2e2e2e, #111);
+	height: 100%;
+	overflow: auto;;
+	padding: 2.5vh;
+	color: #e2e2e2;
+	border-right: 2px solid #666;
+	i {
+		font-size: 2em;
+		padding: 0 2.5vh;
+	}
+	b {
+		@extend .flex-container;
+	}
+	a {
+		@extend .flex-container;
+		@extend .flex-1;
+		padding: 1vh;
+		align-self: stretch;
+		justify-content: center;
+		color: #e2e2e2;
+		&>* {
+			align-self: center;
+		}
+		&:hover {
+			background-color: $secondary-color;
+		}	
+	}
+}
+
+#design {
+	height: 100%;
+	overflow: auto;
+}
+
+
+
+
+
+
+// Flex
+.flex-container {
+	@include display-flex;
+}
+.flex-vertical {
+	flex-flow: column;
+}
+.flex-1 {
+	@include flex(1);
+}
+.flex-2 {
+	@include flex(2);
+}
+.flex-3 {
+	@include flex(3);
+}
+.flex-4 {
+	@include flex(4);
+}
+
+// Align Content
+.text-center {
+	text-align: center;
+}

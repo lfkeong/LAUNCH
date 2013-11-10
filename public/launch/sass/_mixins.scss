@@ -1,0 +1,93 @@
+@mixin linear-gradient($from, $to, $color-start, $color-end ) {
+	background-image: -webkit-gradient(
+	linear,
+	$from,
+	$to,
+	color-stop(0, $color-start),
+	color-stop(1, $color-end)
+	);
+	background-image: -o-linear-gradient($to, $color-start 0%, $color-end 100%);
+	background-image: -moz-linear-gradient($to, $color-start 0%, $color-end 100%);
+	background-image: -webkit-linear-gradient($to, $color-start 0%, $color-end 100%);
+	background-image: -ms-linear-gradient($to, $color-start 0%, $color-end 100%);
+	background-image: linear-gradient(to $to, $color-start 0%, $color-end 100%);
+}
+
+@mixin background-size($value) {
+	-webkit-background-size: $value;
+	-moz-background-size: $value;
+	background-size: $value;
+	
+}
+
+@mixin box-sizing($box-sizing) {
+	-webkit-box-sizing: $box-sizing;
+	-moz-box-sizing: $box-sizing;
+	-ms-box-sizing: $box-sizing;
+	box-sizing: $box-sizing;
+}
+
+@mixin transition($property, $duration, $easing) {
+	-webkit-transition: $property $duration $easing;
+	-moz-transition: $property $duration $easing;
+	-ms-transition: $property $duration $easing;
+	-o-transition: $property $duration $easing;
+	transition: $property $duration $easing;
+}
+
+@mixin display-flex {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+@mixin flex($values) {
+	-webkit-box-flex: $values;
+  	-moz-box-flex:  $values;
+  	-webkit-flex:  $values;
+  	-ms-flex:  $values;
+  	flex:  $values;
+}
+
+@mixin columns($width, $count) {
+	-webkit-columns: $width $count;
+	-moz-columns: $width $count;
+	columns: $width $count;
+}
+
+@mixin rotate($deg) {
+	-webkit-transform: rotate($deg);
+	-moz-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	-o-transform: rotate($deg);
+	transform: rotate($deg);
+}
+
+@mixin circle {
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+@mixin triangle($direction, $size, $color) {
+	width: 0; 
+	height: 0;
+	@if $direction == up { 
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-bottom: $size solid $color;
+	} @else if $direction == down {
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-top: $size solid $color;
+	} @else if $direction == left {
+		border-top: $size solid transparent;
+		border-right: $size solid transparent;
+		border-bottom: $size solid $color;
+	} @else if $direction == right {
+		border-left: $size solid transparent;
+		border-top: $size solid transparent;
+		border-bottom: $size solid $color;
+	}
+}

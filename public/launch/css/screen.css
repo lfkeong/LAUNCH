@@ -1,0 +1,319 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../.rvm/gems/ruby-1.9.2-p320/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../.rvm/gems/ruby-1.9.2-p320/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../.rvm/gems/ruby-1.9.2-p320/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../.rvm/gems/ruby-1.9.2-p320/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../.rvm/gems/ruby-1.9.2-p320/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../.rvm/gems/ruby-1.9.2-p320/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../.rvm/gems/ruby-1.9.2-p320/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../.rvm/gems/ruby-1.9.2-p320/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../.rvm/gems/ruby-1.9.2-p320/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, ../sass/_base.scss */
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 2, ../sass/_base.scss */
+a, a:visited, a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+/* line 3, ../sass/_base.scss */
+li {
+  list-style-type: none;
+}
+
+/* line 32, ../sass/_base.scss */
+h1 {
+  font-size: 3.25em;
+  font-family: 'Share Tech', sans-serif;
+}
+
+/* line 33, ../sass/_base.scss */
+h2 {
+  font-size: 2.00em;
+}
+
+/* line 34, ../sass/_base.scss */
+h3 {
+  font-size: 1.25em;
+}
+
+/* line 35, ../sass/_base.scss */
+h4 {
+  font-size: 0.75em;
+}
+
+/* line 36, ../sass/_base.scss */
+h5 {
+  font-size: 0.50em;
+}
+
+/* line 37, ../sass/_base.scss */
+h6 {
+  font-size: 0.25em;
+}
+
+/* line 38, ../sass/_base.scss */
+p {
+  font-size: 1em;
+  font-family: 'Share Tech', sans-serif;
+}
+
+/* line 78, ../sass/_base.scss */
+.hidden {
+  display: none;
+}
+
+/* line 81, ../sass/_base.scss */
+.shown {
+  display: block;
+}
+
+/* line 84, ../sass/_base.scss */
+::selection {
+  background-color: #55d5ff;
+}
+
+/* line 5, ../sass/_layout.scss */
+#editor {
+  background-image: -webkit-gradient(linear, left, right, color-stop(0, #2e2e2e), color-stop(1, #111111));
+  background-image: -o-linear-gradient(right, #2e2e2e 0%, #111111 100%);
+  background-image: -moz-linear-gradient(right, #2e2e2e 0%, #111111 100%);
+  background-image: -webkit-linear-gradient(right, #2e2e2e 0%, #111111 100%);
+  background-image: -ms-linear-gradient(right, #2e2e2e 0%, #111111 100%);
+  background-image: linear-gradient(to right, #2e2e2e 0%, #111111 100%);
+  height: 100%;
+  overflow: auto;
+  padding: 2.5vh;
+  color: #e2e2e2;
+  border-right: 2px solid #666;
+}
+/* line 12, ../sass/_layout.scss */
+#editor i {
+  font-size: 2em;
+  padding: 0 2.5vh;
+}
+/* line 19, ../sass/_layout.scss */
+#editor a {
+  padding: 1vh;
+  align-self: stretch;
+  justify-content: center;
+  color: #e2e2e2;
+}
+/* line 26, ../sass/_layout.scss */
+#editor a > * {
+  align-self: center;
+}
+/* line 29, ../sass/_layout.scss */
+#editor a:hover {
+  background-color: #b36618;
+}
+
+/* line 35, ../sass/_layout.scss */
+#design {
+  height: 100%;
+  overflow: auto;
+}
+
+/* line 46, ../sass/_layout.scss */
+.flex-container, #editor b, #editor a, #top-bar .name, #top-bar a {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* line 49, ../sass/_layout.scss */
+.flex-vertical {
+  flex-flow: column;
+}
+
+/* line 52, ../sass/_layout.scss */
+.flex-1, #editor a {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+/* line 55, ../sass/_layout.scss */
+.flex-2 {
+  -webkit-box-flex: 2;
+  -moz-box-flex: 2;
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
+
+/* line 58, ../sass/_layout.scss */
+.flex-3 {
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+}
+
+/* line 61, ../sass/_layout.scss */
+.flex-4 {
+  -webkit-box-flex: 4;
+  -moz-box-flex: 4;
+  -webkit-flex: 4;
+  -ms-flex: 4;
+  flex: 4;
+}
+
+/* line 66, ../sass/_layout.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 5, ../sass/_module.scss */
+#top-bar a {
+  align-self: stretch;
+}
+/* line 9, ../sass/_module.scss */
+#top-bar a:hover {
+  background-color: #ff6600;
+}
+/* line 13, ../sass/_module.scss */
+#top-bar h1 {
+  color: #fff;
+  padding: 0 5vh;
+  align-self: center;
+}
+
+/* line 20, ../sass/_module.scss */
+#featured-banner {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+/* line 26, ../sass/_module.scss */
+.featured-background {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 50vh;
+  background-image: url(http://cdn.twitrcovers.com/wp-content/uploads/2012/11/Gaussian-Blur-l.jpg);
+}
+
+/* line 32, ../sass/_module.scss */
+.featured-description {
+  padding: 10vh;
+}
+
+/* line 35, ../sass/_module.scss */
+.gradient-overlay {
+  background-image: -webkit-gradient(linear, top left, bottom right, color-stop(0, #2785b8), color-stop(1, #3fdddd));
+  background-image: -o-linear-gradient(bottom right, #2785b8 0%, #3fdddd 100%);
+  background-image: -moz-linear-gradient(bottom right, #2785b8 0%, #3fdddd 100%);
+  background-image: -webkit-linear-gradient(bottom right, #2785b8 0%, #3fdddd 100%);
+  background-image: -ms-linear-gradient(bottom right, #2785b8 0%, #3fdddd 100%);
+  background-image: linear-gradient(to bottom right, #2785b8 0%, #3fdddd 100%);
+  opacity: 0.4;
+  z-index: 999;
+}
+
+/* line 41, ../sass/_module.scss */
+.text-panel {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d9d9d9;
+  margin-bottom: 1.25em;
+  padding: 1.25em;
+  background: #f2f2f2;
+}
+/* line 48, ../sass/_module.scss */
+.text-panel .feature-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+/* line 52, ../sass/_module.scss */
+.text-panel .feature-desc {
+  font-size: 0.85rem;
+  font-weight: 200;
+}
+
+/* line 58, ../sass/_module.scss */
+.maxed {
+  position: absolute;
+  width: 100%;
+  height: 50vh;
+}
+
+/* line 64, ../sass/_module.scss */
+.profile-picture {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 20vh;
+  width: 20vh;
+  margin: 0 auto;
+}

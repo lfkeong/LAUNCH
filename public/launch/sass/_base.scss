@@ -1,0 +1,157 @@
+html,body {height: 100%;width: 100%;}
+a, a:visited, a:hover {color: #000; text-decoration: none;}
+li {list-style-type: none;}
+
+
+// The default font-size is set to 100% of the browser style sheet (usually 16px)
+// for compatibility with browser-based text zoom or user-set defaults.
+$base-font-size: 100% !default;
+
+// $base-line-height is 24px while $base-font-size is 16px
+$base-line-height: 150%;
+
+// This is the default html and body font-size for the base em value.
+
+// Since the typical default browser font-size is 16px, that makes the calculation for grid size.
+// If you want your base font-size to be a different size and not have it effect grid size too,
+// set the value of $em-base to $base-font-size ($em-base: $base-font-size;)
+$em-base: 1em !default;
+
+// Change whether or not you include browser prefixes
+// $experimental: true;
+
+// Various global styles
+
+$default-float: left;
+
+$body-bg: #fff;
+$body-font-color: #222;
+$body-font-family: Helvetica, Arial, sans-serif;
+$body-font-weight: normal;
+$body-font-style: normal;
+h1 {font-size: 3.25em;font-family: 'Share Tech', sans-serif;}
+h2 {font-size: 2.00em;}
+h3 {font-size: 1.25em;}
+h4 {font-size: 0.75em;}
+h5 {font-size: 0.50em;}
+h6 {font-size: 0.25em;}
+p {font-size: 1em;font-family: 'Share Tech', sans-serif;}
+
+// Font-smoothing
+
+$font-smoothing: antialiased;
+
+// Text direction settings
+
+// $text-direction: ltr;
+
+// Colors
+
+$primary-color: #55D5FF;
+$secondary-color: #B36618;
+$accent-color: #ff6600;
+$light-color: #CAF2FF;
+$dark-color: #2A91B3;
+$alert-color: #c60f13;
+$success-color: #5da423;
+
+// Make sure border radius matches unless we want it different.
+
+$global-radius: 3px;
+$global-rounded: 1000px;
+
+// Inset shadow shiny edges and depressions.
+
+$shiny-edge-size: 0 1px 0;
+$shiny-edge-color: rgba(#fff, .5);
+$shiny-edge-active-color: rgba(#000, .2);
+
+//
+// Grid Variables
+//
+
+// $row-width: em-calc(1000);
+// $column-gutter: em-calc(30);
+// $total-columns: 12;
+
+// Utility
+.hidden {
+	display: none;
+}
+.shown {
+	display: block;
+}
+::selection {
+	background-color: $primary-color;
+}
+
+// Mixins
+@mixin box-sizing($box-sizing) {
+	-webkit-box-sizing: $box-sizing;
+	-moz-box-sizing: $box-sizing;
+	-ms-box-sizing: $box-sizing;
+	box-sizing: $box-sizing;
+}
+
+@mixin transition($property, $duration, $easing) {
+	-webkit-transition: $property $duration $easing;
+	-moz-transition: $property $duration $easing;
+	-ms-transition: $property $duration $easing;
+	-o-transition: $property $duration $easing;
+	transition: $property $duration $easing;
+}
+
+@mixin display-flex {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+@mixin flex($values) {
+	-webkit-box-flex: $values;
+  	-moz-box-flex:  $values;
+  	-webkit-flex:  $values;
+  	-ms-flex:  $values;
+  	flex:  $values;
+}
+
+@mixin columns($width, $count) {
+	-webkit-columns: $width $count;
+	-moz-columns: $width $count;
+	columns: $width $count;
+}
+
+@mixin rotate($deg) {
+	-webkit-transform: rotate($deg);
+	-moz-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	-o-transform: rotate($deg);
+	transform: rotate($deg);
+}
+
+@mixin triangle($direction, $size, $color) {
+	width: 0; 
+	height: 0;
+	@if $direction == up { 
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-bottom: $size solid $color;
+	} @else if $direction == down {
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-top: $size solid $color;
+	} @else if $direction == left {
+		border-top: $size solid transparent;
+		border-right: $size solid transparent;
+		border-bottom: $size solid $color;
+	} @else if $direction == right {
+		border-left: $size solid transparent;
+		border-top: $size solid transparent;
+		border-bottom: $size solid $color;
+	}
+}
+
+
+

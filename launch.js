@@ -31,7 +31,7 @@ app.configure('development', function(){
 });
 
 app.get('/launch', function(req, res){
-  res.render('home',{});
+  res.render('editor',{});
 });
 
 app.get('/login', function(req,res){

@@ -30,7 +30,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/home', function(req, res){
+app.get('/launch', function(req, res){
   res.render('home',{});
 });
 
